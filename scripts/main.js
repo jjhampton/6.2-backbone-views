@@ -24,7 +24,6 @@
         'click': function() {
           alert("Click pressed");
           this.model.like();
-          this.delegateEvents();
           this.render();
         }
       },
