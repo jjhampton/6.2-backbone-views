@@ -13,6 +13,7 @@
         console.log("Current count is " + currentCount);
         this.set({'count': currentCount + 1});
         console.log("Set count is " + this.get('count'));
+
       }
     });
 
@@ -23,6 +24,8 @@
         'click': function() {
           alert("Click pressed");
           this.model.like();
+          this.delegateEvents();
+          this.render();
         }
       },
       initialize: function() {
@@ -32,10 +35,14 @@
         var count = this.model.get('count');
         console.log("Count is " + count);
         this.$el.html(this.template({count: count}));
-        $('.container').html(this.el);
+        return this;
       },
     });
 
+
     var currentLikes = new LikeModel();
     var currentPage = new PageView({model: currentLikes});
+    $('.container').html(currentPage.el);
+
+
 })();
