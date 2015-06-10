@@ -1,20 +1,16 @@
 (function(){
   'use strict';
 
-    console.log("TEST");
-
     var LikeModel = Backbone.Model.extend({
       defaults: {
         count: 0,
-        buttonText: "Likes"
+        buttonText: "Likes" //starting value when at 0
       },
 
       like: function() {
         var buttonText;
         var initialCount = this.get('count');
-        console.log("Initial count is " + initialCount);
         this.set({'count': initialCount + 1});
-        console.log("Set count is " + this.get('count'));
         buttonText = this.get('count') > 1 ? 'Likes' : 'Like';
         this.set({'buttonText': buttonText});
         }
@@ -35,7 +31,6 @@
       render: function() {
         var count = this.model.get('count');
         var buttonText = this.model.get('buttonText');
-        console.log("Count is " + count);
         this.$el.html(this.template({
           count: count,
           buttonText: buttonText
