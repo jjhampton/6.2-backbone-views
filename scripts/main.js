@@ -17,6 +17,7 @@
     });
 
     var PageView = Backbone.View.extend({
+      tagName: 'button',
       template: JST.likeButton,
 
       events: {
@@ -42,7 +43,7 @@
 
     var currentLikes = new LikeModel();
     var currentPage = new PageView({model: currentLikes});
-    $('.container').html(currentPage.el);
+    $('.container').html(currentPage.$el);
 
 
 })();
