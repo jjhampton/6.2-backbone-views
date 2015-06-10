@@ -9,13 +9,13 @@ export default Backbone.View.extend({
       this.model.set({'isLoading': true});
       this.render();
       //change text CSS to lighter gray; must be done after element created by this.render() in order to function
-      $('button').css('color', 'gray');
+      $('.submit-button').css('color', 'gray');
 
       //reset values to initial text, isLoading/non-disabled, and color
       setTimeout(function() {
         that.model.set({'text': 'Submit'});
         that.model.set({'isLoading': false});
-        $('button').css('color', 'inherit');
+        $('.submit-button').css('color', 'inherit');
         that.render();
       }, 4000);
     }
